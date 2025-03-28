@@ -10,13 +10,14 @@ import {
     PaginationLink,
     PaginationNext,
     PaginationPrevious,
-} from "@/components/ui/pagination"
+} from "@/components/ui/pagination";
 import { useNavigate } from "react-router-dom";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Input } from "@/components/ui/input";
 
 function UserList() {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const token = localStorage.getItem("token") || useSelector(state => state.auth.token);
     useEffect(() => {
         if (!token) {
@@ -29,7 +30,14 @@ function UserList() {
     const deletedUsers = useSelector((state) => state.users.deletedUsers);
     const allUsersInfo = useAllUsersInfo(currentPage);
     const totalPages = useSelector((state) => state.users.totalPages);
-    const availableUsersInfo = allUsersInfo.filter(userInfo => !deletedUsers.includes(userInfo.id));
+    const [searchQuery, setSearchQuery] = useState("");
+
+    const availableUsersInfo = allUsersInfo.filter(userInfo =>
+        !deletedUsers.includes(userInfo.id) && (
+            userInfo.first_name.toLowerCase().includes(searchQuery.trim().toLowerCase())
+            || userInfo.last_name.toLowerCase().includes(searchQuery.trim().toLowerCase())
+        )
+    );
 
     const handlePageChange = (newPage) => {
         if (newPage >= 1 && newPage <= totalPages) {
@@ -49,6 +57,18 @@ function UserList() {
                     <CardTitle className="text-gray-200 text-xl font-semibold text-center">User Management</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
+                    {/* Search Input */}
+                    <div className="mb-4">
+                        <Input
+                            type="text"
+                            placeholder="Search users by name..."
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            className="bg-gray-700 border-gray-600 text-gray-100 focus-visible:ring-gray-500"
+                        />
+                    </div>
+
+                    {/* User List */}
                     {availableUsersInfo.length ? (
                         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                             {availableUsersInfo.map((userInfo) => (
@@ -58,11 +78,12 @@ function UserList() {
                     ) : (
                         <Alert className="bg-gray-700 border-gray-600">
                             <AlertDescription className="text-gray-300">
-                                No users available.
+                                No users found.
                             </AlertDescription>
                         </Alert>
                     )}
 
+                    {/* Pagination */}
                     {totalPages > 1 && (
                         <Pagination className="mt-6">
                             <PaginationContent>
