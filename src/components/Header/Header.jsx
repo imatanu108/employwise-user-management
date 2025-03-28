@@ -11,7 +11,7 @@ function Header() {
         <>
             <div className="fixed top-0 w-full py-1 md:py-2 px-1 md:px-4 lg:px-8 z-40 flex justify-between items-center bg-[#0e3150] bg-opacity-10 backdrop-blur-2xl">
                 <Button
-                    className="flex gap-2 px-2"
+                    className="flex gap-2 px-2 bg-transparent"
                     onClick={() => navigate('/')}
                 >
                     <div className='font-bold text-2xl tracking-wider text-blue-600 bg-transparent'>
