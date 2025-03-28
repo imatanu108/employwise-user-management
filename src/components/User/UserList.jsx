@@ -58,13 +58,13 @@ function UserList() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                     {/* Search Input */}
-                    <div className="mb-4">
+                    <div className="mb-4 md:mx-[10%] lg:mx-[25%]">
                         <Input
                             type="text"
                             placeholder="Search users by name..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="bg-gray-700 border-gray-600 text-gray-100 focus-visible:ring-gray-500"
+                            className="bg-gray-700 placeholder:text-gray-400 border-gray-600 text-gray-100 focus-visible:ring-gray-500"
                         />
                     </div>
 
