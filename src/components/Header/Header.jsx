@@ -14,7 +14,9 @@ function Header() {
                     className="flex gap-2 px-2"
                     onClick={() => navigate('/')}
                 >
-                    <div className='font-bold text-2xl tracking-wider text-blue-600 dark:text-blue-400'>EmployWise</div>
+                    <div className='font-bold text-2xl tracking-wider text-blue-600 bg-transparent'>
+                        EmployWise
+                    </div>
                 </Button>
 
                 <div className="flex items-center gap-6">

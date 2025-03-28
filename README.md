@@ -4,6 +4,11 @@ EmployWise Users is a user management application designed to manage users effic
 
 ---
 
+## 🌐 Live Demo
+🔗 [EmployWise Live](https://employwise-users.vercel.app/auth/login)
+
+---
+
 ## Features
 
 - **Authentication**: Secure login functionality with token-based authentication.
@@ -31,7 +36,7 @@ EmployWise Users is a user management application designed to manage users effic
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/employwise-users.git
+   git clone https://github.com/imatanu108/employwise-users.git
    cd employwise-users
    ```
 
