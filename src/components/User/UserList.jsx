@@ -52,7 +52,7 @@ function UserList() {
 
     return (
         <div className="space-y-6 p-4 bg-gray-900 min-h-screen text-gray-100">
-            <Card className="border-0">
+            <Card className="border-0 bg-transparent">
                 <CardHeader>
                     <CardTitle className="text-gray-200 text-xl font-semibold text-center">User Management</CardTitle>
                 </CardHeader>
@@ -85,7 +85,7 @@ function UserList() {
 
                     {/* Pagination */}
                     {totalPages > 1 && (
-                        <Pagination className="mt-6">
+                        <Pagination className="mt-6 text-gray-400">
                             <PaginationContent>
                                 <PaginationItem>
                                     <PaginationPrevious
