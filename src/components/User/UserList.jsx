@@ -18,7 +18,8 @@ import { Input } from "@/components/ui/input";
 
 function UserList() {
     const navigate = useNavigate();
-    const token = localStorage.getItem("token") || useSelector(state => state.auth.token);
+    const token = useSelector(state => state.auth.token);
+    
     useEffect(() => {
         if (!token) {
             navigate('/auth/login');

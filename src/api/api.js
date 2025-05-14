@@ -6,5 +6,6 @@ export const api = axios.create({
     baseURL: baseURL,
     headers: {
         'Content-Type': 'application/json',
+        'x-api-key': 'reqres-free-v1'
     }
 });
